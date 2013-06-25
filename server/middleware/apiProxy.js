@@ -38,7 +38,7 @@ function apiProxy(apiHostsMap) {
         res.status(status);
       }
       res.json(body);
-    } res);
+    }, res);
   };
 };
 
