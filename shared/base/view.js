@@ -145,7 +145,7 @@ module.exports = BaseView = Backbone.View.extend({
   * Get HTML attributes to add to el.
   */
   getAttributes: function() {
-    var attributes = {};
+    var attributes = {}, self = this;
 
     if (this.id) {
       attributes.id = this.id;
@@ -177,7 +177,7 @@ module.exports = BaseView = Backbone.View.extend({
           key = 'collection_params';
           value = _.escape(JSON.stringify(value.params));
         }
-        if (!_.isObject(value) && !_.include(this.nonAttributeOptions, key)) {
+        if (!_.isObject(value) && !_.include(self.nonAttributeOptions, key)) {
           attributes["data-" + key] = _.escape(value);
         }
       }
