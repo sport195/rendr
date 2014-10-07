@@ -16,3 +16,10 @@ utils.isErrorStatus = function(statusCode, options) {
     return statusCode >= 400 && statusCode < 600;
   }
 };
+
+utils.path = function(path) {
+  if (/^win/.test(process.platform)) {
+    return path.replace(/\//gi, '\\') || path;
+  }
+  return path;
+};
