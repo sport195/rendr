@@ -5,6 +5,7 @@ var Handlebars, fs, layoutTemplate, _;
 fs = require('fs');
 _ = require('underscore');
 Handlebars = require('handlebars');
+utils = require('./utils');
 
 module.exports = exports = viewEngine;
 
@@ -58,7 +59,7 @@ function getLayoutTemplate(callback) {
 function getViewHtml(viewPath, locals, app) {
   var BaseView, View, name, view, basePath;
 
-  basePath = 'app/views';
+  basePath = utils.path('app/views');
   BaseView = require('../shared/base/view');
   locals = _.clone(locals);
 
